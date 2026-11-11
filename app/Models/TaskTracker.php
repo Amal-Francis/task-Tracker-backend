@@ -8,6 +8,7 @@ class TaskTracker extends Model
 {
     protected $fillable = [
         'title',
+        'user_id',
         'completed'
     ];
 

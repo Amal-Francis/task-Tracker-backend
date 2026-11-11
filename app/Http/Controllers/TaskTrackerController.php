@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TaskTracker;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class TaskTrackerController extends Controller
 {
     public function show()
     {
-        $tasks = TaskTracker::orderByDesc('updated_at')->get();
+        $user = User::find(Auth::id());
+
+        $tasks = $user->tasks()->orderByDesc('updated_at')->get();
 
         $completed = $tasks->filter(fn($task) => $task->completed)->values();
         $active = $tasks->filter(fn($task) => !$task->completed)->values();
@@ -31,6 +35,7 @@ class TaskTrackerController extends Controller
 
         $response = TaskTracker::create([
             'title' => $request->title,
+            'user_id' => Auth::id(),
         ]);
 
         return response()->json([
