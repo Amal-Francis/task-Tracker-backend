@@ -8,7 +8,8 @@ Route::get('/check-session-config', function () {
     return response()->json([
         'env_value' => env('SESSION_SAME_SITE'),
         'config_value' => config('session.same_site'),
-        'secure' => config('session.secure'),
+        'config_cached' => app()->configurationIsCached(),
+        'config_file' => app()->getCachedConfigPath(),
     ]);
 });
 
