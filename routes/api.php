@@ -4,17 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskTrackerController;
 use App\Http\Controllers\AuthController;
 
-Route::get('/check-session-config', function () {
-    $cached = include app()->getCachedConfigPath();
-
-    return response()->json([
-        'env_value' => env('SESSION_SAME_SITE'),
-        'config_value' => config('session.same_site'),
-        'cached_value' => $cached['session']['same_site'] ?? null,
-        'secure' => config('session.secure'),
-    ]);
-});
-
 Route::post('/register', [AuthController::class, 'register'])->middleware('web');
 Route::post('/login', [AuthController::class, 'login'])->middleware('web');
 
