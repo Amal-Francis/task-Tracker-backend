@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://task-tracker-frontend-pearl-eta.vercel.app', "http://localhost:3000"],
+    'allowed_origins' => ['https://task-tracker-frontend-pearl-eta.vercel.app', "https://task-tracker-frontend-5ltgdo3fn-amal-francis-projects-12b533f8.vercel.app/", "http://localhost:3000"],
 
     'allowed_origins_patterns' => [],
 
