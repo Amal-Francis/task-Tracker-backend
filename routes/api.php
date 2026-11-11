@@ -5,11 +5,13 @@ use App\Http\Controllers\TaskTrackerController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/check-session-config', function () {
+    $cached = include app()->getCachedConfigPath();
+
     return response()->json([
         'env_value' => env('SESSION_SAME_SITE'),
         'config_value' => config('session.same_site'),
-        'config_cached' => app()->configurationIsCached(),
-        'config_file' => app()->getCachedConfigPath(),
+        'cached_value' => $cached['session']['same_site'] ?? null,
+        'secure' => config('session.secure'),
     ]);
 });
 
