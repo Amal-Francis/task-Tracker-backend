@@ -1,59 +1,234 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Tracker – Backend
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A RESTful API built with **Laravel 12** and **PHP** for a full-stack Task Tracker application. It handles user authentication and task management operations, allowing authenticated users to create, retrieve, complete, and delete their personal tasks.
 
-## About Laravel
+The backend provides secure API endpoints using Laravel Sanctum and supports both MySQL for local development and PostgreSQL for production deployment.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Live Application
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+🌐 **Frontend:** [Task Tracker – Live](https://task-tracker-frontend-pearl-eta.vercel.app/)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🚀 **Backend API:** [Task Tracker – Render](https://task-tracker-backend-rrol.onrender.com/)
 
-## Learning Laravel
+🎥 **Video Demonstration:** [Task Tracker - Demo](https://youtu.be/SrTdbmpHhzQ)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Frontend Repository
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+🔗 [Task Tracker – Frontend GitHub Repository](https://github.com/Amal-Francis/task-tracker-frontend)
 
-## Laravel Sponsors
+## Features
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Authentication
 
-### Premium Partners
+- User registration.
+- User login and logout.
+- Session-based authentication using Laravel Sanctum.
+- Protected API endpoints for authenticated users.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Task Management
 
-## Contributing
+- Create new tasks.
+- Retrieve the authenticated user's tasks.
+- Mark tasks as completed or pending.
+- Delete existing tasks.
+- Associate tasks with their respective users.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Database
 
-## Code of Conduct
+- MySQL for local development.
+- Neon PostgreSQL for production deployment.
+- Laravel migrations for database schema management.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Technologies Used
 
-## Security Vulnerabilities
+| Technology        | Purpose                        |
+| ----------------- | ------------------------------ |
+| PHP 8.2+          | Backend programming language   |
+| Laravel 12        | Backend framework              |
+| Laravel Sanctum 4 | Authentication                 |
+| MySQL             | Local development database     |
+| PostgreSQL        | Production database            |
+| Neon              | Hosted PostgreSQL database     |
+| REST API          | Frontend-backend communication |
+| Composer          | PHP dependency management      |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## API Endpoints
 
-## License
+All endpoints use the `/api` prefix.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Authentication Endpoints
+
+| Method | Endpoint        | Description              | Authentication |
+| ------ | --------------- | ------------------------ | -------------- |
+| POST   | `/api/register` | Register a new user      | No             |
+| POST   | `/api/login`    | Authenticate a user      | No             |
+| POST   | `/api/logout`   | Log out the current user | Yes            |
+
+### Task Management Endpoints
+
+| Method | Endpoint              | Description            | Authentication |
+| ------ | --------------------- | ---------------------- | -------------- |
+| POST   | `/api/add`            | Create a new task      | Yes            |
+| GET    | `/api/show`           | Retrieve user tasks    | Yes            |
+| PUT    | `/api/completed/{id}` | Toggle task completion | Yes            |
+| DELETE | `/api/delete/{id}`    | Delete a task          | Yes            |
+
+**Note:** Protected endpoints require an authenticated session managed through Laravel Sanctum.
+
+## Getting Started
+
+Follow these steps to run the backend locally.
+
+### Prerequisites
+
+Make sure you have installed:
+
+- PHP 8.2 or later
+- Composer
+- MySQL
+- Node.js and npm (if you need to run the Laravel frontend assets or development scripts)
+- Git
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Amal-Francis/task-Tracker-backend.git
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd task-Tracker-backend
+```
+
+### 3. Install dependencies
+
+```bash
+composer install
+```
+
+### 4. Configure environment variables
+
+Create your local environment file:
+
+```bash
+cp .env.example .env
+```
+
+On Windows PowerShell, you can alternatively use:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Generate the Laravel application key:
+
+```bash
+php artisan key:generate
+```
+
+### 5. Configure the database
+
+For local development, configure your `.env` file to use MySQL:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=task_tracker
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Create a MySQL database named `task_tracker` using phpMyAdmin or MySQL.
+
+For production, the application uses PostgreSQL hosted through Neon. Configure the production database credentials through your Render environment variables.
+
+**Never commit your actual `.env` file or database credentials to GitHub.**
+
+### 6. Run database migrations
+
+```bash
+php artisan migrate
+```
+
+This creates the required database tables using Laravel migrations.
+
+### 7. Start the Laravel development server
+
+```bash
+php artisan serve
+```
+
+The backend will be available at:
+
+```text
+http://localhost:8000
+```
+
+## Authentication and CORS Configuration
+
+The frontend communicates with the backend using Axios.
+
+Laravel Sanctum handles session-based authentication for the frontend application.
+
+When running locally, configure the appropriate frontend origin, stateful domains and CORS settings to allow requests from your React development server.
+
+For production, configure the deployed frontend domain and backend cookie/session settings appropriately.
+
+## Deployment
+
+The backend is deployed using:
+
+| Service | Purpose                        |
+| ------- | ------------------------------ |
+| Render  | Backend hosting                |
+| Neon    | Production PostgreSQL database |
+| Vercel  | Frontend hosting               |
+
+**Production backend URL:**
+
+https://task-tracker-backend-rrol.onrender.com
+
+## Project Structure
+
+```text
+task-Tracker-backend/
+│
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   └── Models/
+│
+├── bootstrap/
+├── config/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+│
+├── public/
+├── resources/
+├── routes/
+│   └── api.php
+│
+├── storage/
+├── tests/
+├── .env.example
+├── artisan
+├── composer.json
+└── README.md
+```
+
+_This is a simplified overview of the Laravel application structure._
+
+## Author
+
+**Amal Francis**
+
+- GitHub: [Amal-Francis](https://github.com/Amal-Francis)
+- Frontend Repository: [task-tracker-frontend](https://github.com/Amal-Francis/task-tracker-frontend)
+- Backend Repository: [task-Tracker-backend](https://github.com/Amal-Francis/task-Tracker-backend)
+
+---
+
+⭐ Thank you for checking out this project!
